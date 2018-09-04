@@ -1,0 +1,39 @@
+html{
+	background-image: url("cssItems/bgimage.png");
+	background-repeat: no-repeat;
+}
+header{
+	background-color: blue;
+	width: 60%;
+	height: 120px;
+	
+	text-align: center;
+	font-family: Comic Sans MS, Times New Roman;
+	color: white;
+	font-size:32px;
+	font-weight:bold;
+	
+}
+footer{
+	background-color:grey;
+	width: 60%;
+	height: 20px;
+	text-align:center;
+	color: white;
+	position: fixed;
+	bottom: 0;
+}
+.leftBox{
+	background-color:lightgrey;
+	color: white;
+	width: 20%;
+	height: 600px;
+	float: left;
+}
+.rightUpBox{
+	background-color:black;
+	color:white;
+	width:60%;
+	height: 250px;
+	float: center;
+}
