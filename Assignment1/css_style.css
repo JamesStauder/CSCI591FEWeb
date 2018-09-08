@@ -1,0 +1,27 @@
+body {
+    background-color: orange;
+
+
+}
+
+.main_page_container {
+    text-align: center;
+    color: black;
+}
+.main_page_container h1 {
+    font-size: 400%;
+}
+
+
+.main_page_container h2 {
+    padding-top: 10%;
+}
+
+.main_page_container h3 {
+    padding-top: 10%;
+}
+
+
+.timeline_container, .projects_container, .who_container, .interests_container{
+    text-align:center;
+}
