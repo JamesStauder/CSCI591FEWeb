@@ -8,6 +8,40 @@
     <link rel="stylesheet" href="./css_style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<!--  
+	Script copied from Sept. 6 class code. I intend to change this contact form in the future with some
+	better things but this should suffice for now.
+	-->
+	<script language="javascript">
+	
+	function checkEmail()
+		{
+			var email = document.getElementById("email");
+			
+			if(email.value == "")
+			{
+				window.alert("Please enter your email.");
+				email.style.background = "#ff0000";
+				return false;
+			}
+			else
+			{
+				window.alert("Thank you for sending us a message!");
+				window.location = "ContactUs.html";
+				
+			}
+		}
+
+		function revertBack(control)
+		{
+			control.style.background = "#ffff00";
+		}
+		function makeWhite(control)
+		{
+			control.style.background = "#ffffff";
+		}
+	</script>
 </head>
 <body>
 
@@ -32,11 +66,29 @@
 </nav>
 
 
+/*
+Contact me copied from Sept. 6 class code.
 
-<div class="">
-
-
-
+*/
+<div class="container contact_container">   
+	<h1>Contact me by filling out the following form!</h1>
+	<div class="form-group">
+		<label for="firstname">First Name:</label>
+		<input type="firstname" class="form-control" id="firstname" onfocus="revertBack(this);"  onblur="makeWhite(this);">
+	</div>
+	<div class="form-group">
+		<label for="lastname">Last Name:</label>
+		<input type="lastname" class="form-control" id="lastname" onfocus="revertBack(this);"  onblur="makeWhite(this);">
+	</div>
+	<div class="form-group">
+		<label for="email">Email address:</label>
+		<input type="email" class="form-control" id="email" onfocus="revertBack(this);"  onblur="makeWhite(this);">
+	</div>
+	<div class="form-group">
+		<label for="comment">Comment:</label>
+		<textarea class="form-control" rows="5" id="comment" onfocus="revertBack(this);" onblur="makeWhite(this);"></textarea>
+	</div>
+	<center><button type="submit" class="btn btn-default" onclick="checkEmail();">Submit</button></center>
 </div>
 
 
