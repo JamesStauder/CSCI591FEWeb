@@ -1,96 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>My Awesome Math Site</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-  <script>
-	var firstNumVar;
-	var secondNumVar;
-	var correct;
-	function onLoadFunct(){
-		correct = 0;
-		setVars();
-	}
-  
-	function checkAnswer(whichFunction){
-		answer = document.getElementById("answer").value;
-		isRight = false;
-		switch(whichFunction){
-			case "addition":
-				isRight = (answer == (firstNumVar + secondNumVar));
-				break;
-			case "subtract":
-				isRight = (answer == (firstNumVar - secondNumVar));
-				break;
-			case "division":
-				isRight = (answer == (firstNumVar / secondNumVar));
-				break;
-				
-			case "multiply":
-				isRight = (answer == (firstNumVar * secondNumVar));
-				break;
-			default:
-				window.alert("ERROR!");
-				break;
-		}
-		if (isRight){
-			correct = correct + 1;
-			window.alert("CORRECT!");
-			setVars();
-		}
-		else{
-			window.alert("Try again!");
-		}
-		document.getElementById("answer").value = "";
-	}
-	function setVars(){
-	
-		if (correct % 5 == 0){
-			min = (correct/5) * 10;
-			max = min+11;
-		}
-		firstNumVar = Math.floor(Math.random() * max) + min;
-		secondNumVar = Math.floor(Math.random() * max) + min;
-		document.getElementById("firstNum").innerHTML = firstNumVar;
-		document.getElementById("secondNum").innerHTML = secondNumVar;
-	}
-	
-	
-  </script>
+    <title>My Awesome Math Site</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="cssStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="test.js"></script>
 </head>
-	<body onload="onLoadFunct();">
+    <body onload="onLoadFunct();">
 
-	<nav class="navbar navbar-inverse">
-	  <div class="container-fluid">
-		<div class="navbar-header">
-		  <a class="navbar-brand" href="#">Jimmy's Awesome Math Site</a>
-		</div>
-		<ul class="nav navbar-nav">
-		  <li><a href="home.html">Home</a></li>
-		  <li class="active"><a href="addition.html">Addition</a></li>
-		  <li><a href="subtract.html">Subtraction</a></li>
-		  <li><a href="multiplication.html">Multiplication</a></li>
-		  <li><a href="division.html">Division</a></li>
-		</ul>
-	  </div>
-	</nav>
-	  
-		<center>
-		<div class="addition_container">
-			<h1> Addition</h1>
-			
-			<p> What is <span id="firstNum"> </span> + <span id="secondNum"> </span>?</p>
-			
-			<input type="text" class="form-control" id="answer">
-			
-			<button type="button" onclick="checkAnswer('addition');">Submit</button>
-		</div>
-		</center>
-	</body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Jimmy's Awesome Math Site</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="home.html">Home</a></li>
+                    <li class="active"><a href="addition.html">Addition</a></li>
+                    <li><a href="subtract.html">Subtraction</a></li>
+                    <li><a href="multiplication.html">Multiplication</a></li>
+                    <li><a href="division.html">Division</a></li>
+                </ul>
+            </div>
+        </nav>
+          
+	    <center>
+	    <div class="addition_container">
+	        <h1>Addition</h1>
+	        <p> What is <span id="firstNum"> </span> + <span id="secondNum"> </span>?</p>
+	        <input type="text" class="form-control" id="answer">
+	        <button type="button" onclick="checkAnswer('addition');">Submit</button>
+	    </div>
+	    </center>
 
+    </body>
 </html>

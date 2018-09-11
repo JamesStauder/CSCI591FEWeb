@@ -5,14 +5,18 @@
 }
 
 .addition_container h1{
-	text-aline:center;
 	color:green;
 }
 
-.addition_container p{
-	text-align:center;
+
+.multiply_container h1{
+	color:yellow;
 }
 
-.addition_container form-control{
-	
+.division_container h1{
+	color:blue;
+}
+
+.subtract_container h1{
+	color:red;
 }
