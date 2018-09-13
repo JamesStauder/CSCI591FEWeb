@@ -20,3 +20,10 @@
 .subtract_container h1{
 	color:red;
 }
+
+
+// Class
+.visible {
+  visibility: visible;
+}
+
