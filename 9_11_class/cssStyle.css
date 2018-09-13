@@ -3,7 +3,6 @@
 	color: red;
 	
 }
-
 .addition_container h1{
 	color:green;
 }
@@ -20,10 +19,3 @@
 .subtract_container h1{
 	color:red;
 }
-
-
-// Class
-.visible {
-  visibility: visible;
-}
-

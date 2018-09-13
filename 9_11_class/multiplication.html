@@ -27,14 +27,26 @@
             </div>
         </nav>
 
-        <center>
-        <div class="multiply_container">
-            <h1>Multiplication</h1>
-            <p> What is <span id="firstNum"> </span> x <span id="secondNum"> </span>?</p>
-            <input type="text" class="form-control" id="answer">
-            <button type="button" onclick="checkAnswer('multiply');">Submit</button>
-        </div>
-        </center>
+	    <center>
+	    <div class="multiply_container">
+	        <h1>Multiplication</h1>
+			<p><span id="livesLabel"></span></p>
+			<p><span id="scoreLabel"></span></p>
+	        <p> What is <span id="firstNum"> </span> x <span id="secondNum"> </span>?</p>
+	        <input type="text" class="form-control" id="answer">
+	        <button type="button" onclick="checkAnswer('multiply');" id="answerButton">Submit</button>
+	    </div>
+		
+		<div class="multiply_scores_container">
+			<p><span id="highScoreNameLabel" class="invisible">Enter your name!</span></p>
+			<input type="text" class="form-control invisible" id="highScoreNameText">
+			<button type="button" onclick="submitScore();" class="invisible" id="submitScoreButton">Submit Name</button>
+            <h1>High Scores:</h1>
+			<p><span id="scoresList" class="invisible" style="font-size:24px;"></span></p>
+			
+		
+		</div>
+	    </center>
 
     </body>
 </html>

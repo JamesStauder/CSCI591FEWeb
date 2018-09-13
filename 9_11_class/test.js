@@ -8,10 +8,8 @@ var lives;
 var names;
 var scores;
 
-function updateScoreLives(){
-	document.getElementById("livesLabel").innerHTML = "Lives: " + lives;
-	document.getElementById("scoreLabel").innerHTML = "Score: " + correct;
-}
+
+//Function when screen is loaded
 function onLoadFunct(){
 	correct = 0;
     minNum = 1;
@@ -21,10 +19,10 @@ function onLoadFunct(){
 	names = [];
 	scores = [];
 	updateScoreLives();
-	
 	setVars();
 }
 
+//Function to check if answer is correct
 function checkAnswer(whichFunction){
 	answer = document.getElementById("answer").value;
 
@@ -74,6 +72,12 @@ function checkAnswer(whichFunction){
 	document.getElementById("answer").value = "";
 }
 
+//Function to update the labels with the lives and score
+function updateScoreLives(){
+	document.getElementById("livesLabel").innerHTML = "Lives: " + lives;
+	document.getElementById("scoreLabel").innerHTML = "Score: " + correct;
+}
+
 //Function to end game. Have text box that is editable appear.
 function endGame(){
 	var invElements = document.getElementsByClassName("invisible");
@@ -85,10 +89,13 @@ function endGame(){
 	document.getElementById("answerButton").disabled = true;
 }
 
+
+//Reset screen after the user enters in name for high score
 function resetScores(){
 	lives = 3;
 	correct = 0;
 	
+    updateScoreLives();
 	document.getElementById("answer").readOnly = false;
 	document.getElementById("answerButton").disabled = false;
 	document.getElementById("highScoreNameLabel").style.visibility = "hidden";
@@ -99,18 +106,38 @@ function resetScores(){
 
 //Function to sort scores at the end.
 function sortScores(){
+
+
 	scores.push(correct);
 	names.push(document.getElementById("highScoreNameText").value);
+
+    //Essentially insertion sort
+    for (var index=scores.length-1; index > 0; index--){
+        if (scores[index] > scores[index-1]){
+            var tempScore = scores[index];
+            scores[index] = scores[index-1];
+            scores[index-1] = tempScore;
+
+            var tempName = names[index];
+            names[index] = names[index-1];
+            names[index-1] = tempName;
+        }
+        else{
+            break;
+        }
+    }
 	
+
 	var scoreString = "";
 	for (var i = 0; i < scores.length; i++){
-		scoreString = scoreString + names[i] + "      " + scores[i];
-		scoreString = scoreString + "\n";
+		scoreString = scoreString + "<b>" + scores[i] + "</b>&nbsp&nbsp&nbsp&nbsp" + names[i];
+		scoreString = scoreString + "<br>";
 	}
 	
 	document.getElementById("scoresList").style.visibility = "visible";
 	document.getElementById("scoresList").innerHTML = scoreString;
 }
+
 
 function submitScore(){
 	if(checkField()){
@@ -122,6 +149,7 @@ function submitScore(){
 	}
 }
 
+
 function checkField(){
 	var name = document.getElementById("highScoreNameText");
 	if (name.value == ""){
@@ -129,6 +157,8 @@ function checkField(){
 	}
 	return true;
 }
+
+//function to set variables of the math
 function setVars(){
     
 	if ((correct > 0) && (correct % 5 == 0)){
