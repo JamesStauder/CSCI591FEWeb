@@ -3,10 +3,10 @@ var secondNumVar;
 var correct;
 var minNum;
 var maxNum;
-
 var lives;
 var names;
 var scores;
+var questions;
 
 
 //Function when screen is loaded
@@ -16,8 +16,8 @@ function onLoadFunct(){
     maxNum = 11;
 	
 	lives = 3;
-	names = [];
-	scores = [];
+	names_scores = [];
+	questions = [];
 	updateScoreLives();
 	setVars();
 }
@@ -107,37 +107,27 @@ function resetScores(){
 //Function to sort scores at the end.
 function sortScores(){
 
-
-	scores.push(correct);
-	names.push(document.getElementById("highScoreNameText").value);
-
-    //Essentially insertion sort
-    for (var index=scores.length-1; index > 0; index--){
-        if (scores[index] > scores[index-1]){
-            var tempScore = scores[index];
-            scores[index] = scores[index-1];
-            scores[index-1] = tempScore;
-
-            var tempName = names[index];
-            names[index] = names[index-1];
-            names[index-1] = tempName;
-        }
-        else{
-            break;
-        }
-    }
-	
+	names_scores.push({"Name": document.getElementById("highScoreNameText").value, "Score" : correct});
+	for(var index= names_scores.length-1; index > 0; index--){
+		if (names_scores[index].Score > names_scores[index-1].Score){
+			temp = names_scores[index];
+			names_scores[index] = names_scores[index-1];
+			names_scores[index-1] = temp;
+		}
+		else{
+			break;
+		}
+	}
 
 	var scoreString = "";
-	for (var i = 0; i < scores.length; i++){
-		scoreString = scoreString + "<b>" + scores[i] + "</b>&nbsp&nbsp&nbsp&nbsp" + names[i];
+	for (var i = 0; i < names_scores.length; i++){
+		scoreString = scoreString + "<b>" + names_scores[i].Name + "</b>&nbsp&nbsp&nbsp&nbsp" + names_scores[i].Score;
 		scoreString = scoreString + "<br>";
 	}
-	
+
 	document.getElementById("scoresList").style.visibility = "visible";
 	document.getElementById("scoresList").innerHTML = scoreString;
 }
-
 
 function submitScore(){
 	if(checkField()){
@@ -164,11 +154,21 @@ function setVars(){
 	if ((correct > 0) && (correct % 5 == 0)){
 		minNum = (correct/5) * 10;
 		maxNum = minNum+11;
+		
 	}
-	firstNumVar = Math.floor(Math.random() *(maxNum-minNum) + minNum);
-	secondNumVar = Math.floor(Math.random() *(maxNum-minNum) + minNum);
-	document.getElementById("firstNum").innerHTML = firstNumVar;
-	document.getElementById("secondNum").innerHTML = secondNumVar;
+	
+	for(var i = 0; i < 10; i++){
+		questions.push({
+		"firstNumVar": Math.floor(Math.random() *(maxNum-minNum) + minNum),
+		"secondNumVar": Math.floor(Math.random() *(maxNum-minNum) + minNum)
+						});
+	}
+	
+	var randIndex = Math.floor(Math.random() *(10));
+	document.getElementById("firstNum").innerHTML = questions[randIndex].firstNumVar;
+	firstNumVar = questions[randIndex].firstNumVar;
+	document.getElementById("secondNum").innerHTML = questions[randIndex].secondNumVar;
+	secondNumVar = questions[randIndex].secondNumVar;
 }
 
 /*Taken from stackoverflow
