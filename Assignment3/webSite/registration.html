@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jimmy's Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="checkFields.js"></script>
+    <script src="cookies.js"></script>
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Jimmy's Website</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="who.html">Who am I</a></li>
+      <li><a href="timeline.html">My Timeline</a></li>
+      <li><a href="experience.html">My Experience</a></li>
+      <li><a href="projects.html">Current Projects</a></li>
+      <li><a href="interests.html">My Interests</a></li>
+      <li><a href="contact.html">Contact me</a></li>
+      <li class="active"><a href="registration.html">Register</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container contact_container">   
+	<h1>Please register!</h1>
+	<div class="form-group">
+		<label for="username">Username:</label>
+		<input type="username" class="form-control" id="username" onfocus="highlightField(this);"  onblur="makeWhite(this);">
+	</div>
+	<div class="form-group">
+		<label for="password">Password</label>
+		<input type="password" class="form-control" id="password" onfocus="highlightField(this);"  onblur="makeWhite(this);">
+	</div>
+
+    <center>
+    <h2>Please select an employer Type</h2>
+    <div class="btn-group">
+      <button type="button" class="btn btn-default" id='Misc' onclick="setEmployerType(this.id);">Misc.</button>
+      <button type="button" class="btn btn-default" id='Teaching' onclick="setEmployerType(this.id);">Teaching</button>
+      <button type="button" class="btn btn-default" id='ComputerScience' onclick="setEmployerType(this.id);">Computer Science</button>
+    </div>
+    </center>
+
+	<center><button type="submit" class="btn btn-default" onclick="checkRegistrationFields();">Submit</button></center>
+</div>
+
+</body>
+</html>

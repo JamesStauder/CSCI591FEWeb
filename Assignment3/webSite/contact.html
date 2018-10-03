@@ -28,28 +28,31 @@
       <li><a href="projects.html">Current Projects</a></li>
       <li><a href="interests.html">My Interests</a></li>
       <li class="active"><a href="contact.html">Contact me</a></li>
+      <li><a href="registration.html">Register</a></li>
     </ul>
   </div>
 </nav>
+
+
 <div class="container contact_container">   
 	<h1>Contact me by filling out the following form!</h1>
 	<div class="form-group">
 		<label for="firstname">First Name:</label>
-		<input type="firstname" class="form-control" id="firstname" onfocus="highlightField(this);"  onblur="makeWhite(this);">
+		<input type="firstname" class="form-control inputField" id="firstname" onfocus="highlightField(this);"  onblur="makeWhite(this);">
 	</div>
 	<div class="form-group">
 		<label for="lastname">Last Name:</label>
-		<input type="lastname" class="form-control" id="lastname" onfocus="highlightField(this);"  onblur="makeWhite(this);">
+		<input type="lastname" class="form-control inputField" id="lastname" onfocus="highlightField(this);"  onblur="makeWhite(this);">
 	</div>
 	<div class="form-group">
 		<label for="email">Email address:</label>
-		<input type="email" class="form-control" id="email" onfocus="highlightField(this);"  onblur="makeWhite(this);">
+		<input type="email" class="form-control inputField" id="email" onfocus="highlightField(this);"  onblur="makeWhite(this);">
 	</div>
 	<div class="form-group">
 		<label for="comment">Comment:</label>
-		<textarea class="form-control" rows="5" id="comment" onfocus="highlightField(this);" onblur="makeWhite(this);"></textarea>
+		<textarea class="form-control inputField " rows="5" id="comment" onfocus="highlightField(this);" onblur="makeWhite(this);"></textarea>
 	</div>
-	<center><button type="submit" class="btn btn-default" onclick="checkAllFields();">Submit</button></center>
+	<center><button type="submit" class="btn btn-default" id="submitButton">Submit</button></center>
 </div>
 
 </body>

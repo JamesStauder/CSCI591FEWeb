@@ -12,4 +12,3 @@ experiences.ComputerScience.push({"Job Title": "IT", "Time Worked" : "2017", "Em
 experiences.ComputerScience.push({"Job Title": "Teaching Assistant", "Time Worked" : "2017", "Employer": "University of Montana/Data Structures"});
 experiences.ComputerScience.push({"Job Title": "Research Assistant", "Time Worked" : "2017-2018", "Employer": "University of Montana/QSSI Lab"});
 
-console.log(experiences);

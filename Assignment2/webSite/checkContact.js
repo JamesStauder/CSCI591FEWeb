@@ -1,4 +1,5 @@
-function checkAllFields(){
+var empType = "";
+function checkContactFields(){
     if (checkFName() == false){
         return;
     }
@@ -58,6 +59,54 @@ function checkComment(){
     }
     return true;
 }
+
+
+
+
+
+function checkRegistrationFields(){
+    if(checkUsername() == false){
+        return;
+    }
+
+    if(checkPassword() == false){
+        return;
+    }
+
+
+    
+
+}
+
+function checkUsername(){
+    var username = document.getElementById("username");
+    if(username.value == ""){
+        window.alert("Please enter a username.");
+        username.style.background = "#ff0000";
+        return false;
+    }
+    return true;
+}
+
+function checkPassword(){
+    var username = document.getElementById("password");
+    if(password.value == ""){
+        window.alert("Please enter a password.");
+        password.style.background = "#ff0000";
+        return false;
+    }
+    return true;
+}
+
+
+function setEmployerType(){
+    empType = document.getElementById("empTypeButton");
+    console.log(empType);
+
+}
+
+
+
 
 function makeWhite(control){
     control.style.background = "#ffffff";
