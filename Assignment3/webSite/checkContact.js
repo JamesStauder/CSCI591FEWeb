@@ -14,10 +14,8 @@ function checkAllContactFields(allFields){
         var inputValue = allFields[i].value;
 
         if (inputValue == ""){
-            /*
-                Change input field to highlight red
-                Change formValid to false
-            */
+			allFields[i].style.background = "#ff0000";
+			formValid = false;
         }
         if (allFields[i].id == "email"){
             emailField = allFields[i];
@@ -26,15 +24,13 @@ function checkAllContactFields(allFields){
 
     if(!formValid){
         window.alert("Please fill out the highlighted fields!");
-        break;
+        return;
     }
 
     if(!checkEmailField(emailField.value)){
-        /*
-            Highlight email field to be red
-        */
-        window.alert("Please enter a valid email!");
-        break;
+		emailField.style.background = "#ff0000";
+		window.alert("Please enter a valid email!");
+        return;
     }
 
     window.alert("Thank you for submitting your response. I will get to it immediately!");
@@ -42,9 +38,20 @@ function checkAllContactFields(allFields){
 
 
 function checkEmailField(emailText){
-/*
-Check to see if email is valid. If it is return true. Else return false
-*/
+	if (emailText.indexOf('@') > -1 && emailText.indexOf('.') > -1)
+	{
+	  return true;
+	}
+	return false;
+}
+
+
+function makeWhite(control){
+    control.style.background = "#ffffff";
+}
+
+function highlightField(control){
+    control.style.background = "#ffff00";
 }
 
 

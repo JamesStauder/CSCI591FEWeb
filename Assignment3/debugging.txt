@@ -1,8 +1,4 @@
-I experienced quite a few errors while developing this page up until Assignment 2. Depending on what I was working on I used different methods to debug. Here I list the main aspects of the coding and how I debugged any errors associated with that aspect.
-
-
-Javascript - I did not experience many JS errors but the ones I did I was able to debug by using console.log statements 
-
-D3 - I decided to use D3 a bit in this assignment and I debugged any errors by referencing online material and also inspecting the elements I was adding and its attributes
-
-HTML - I do not recall having any HTML errors in this assignment as I tried to do most things through JS. 
+I experienced so many errors this time around that I literally ran out of time. What I tried to do
+when I came across errors was to reference the lectures and online material. I also
+used a ton of console logs to try and debug my programs. I will be working on finishing this up in the 
+upcoming days.
