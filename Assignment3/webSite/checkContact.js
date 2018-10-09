@@ -1,9 +1,16 @@
+
+
+
+
+
 $(document).ready(function(){
     var inputFields = $(".inputField");
     inputFields = $.makeArray(inputFields);
 	$("#submitButton").click(function(){
         checkAllContactFields(inputFields);
     });
+
+
 });
 
 

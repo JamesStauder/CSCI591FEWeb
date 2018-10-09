@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="./css_style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="checkFields.js"></script>
-
+	<script src="checkRegistration.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
     <script src="cookies.js"></script>
+    <script src="pw/dist/jquery.password-validator.js"></script>
+    <link rel="stylesheet" href="pw/dist/jquery-password-validator.css">
 </head>
 
 <body>
@@ -42,14 +44,13 @@
 		<input type="username" class="form-control" id="username" onfocus="highlightField(this);"  onblur="makeWhite(this);">
 	</div>
 	
-	<div id="pssword"></div>
 	<div class="form-group">
-		<label for="password">Password</label>
-		<input type="password" class="form-control" id="pssword2" onfocus="highlightField(this);"  onblur="makeWhite(this);">
+		<label for="password">Password:</label>
+		<input type="password" class="form-control" id="pssword" onfocus="highlightField(this);"  onblur="makeWhite(this);">
 	</div>
 
     <center>
-    <h2>Please select an employer Type</h2>
+    <h2>Please select an employer type</h2>
     <div class="btn-group">
       <button type="button" class="btn btn-default" id='Misc' onclick="setEmployerType(this.id);">Misc.</button>
       <button type="button" class="btn btn-default" id='Teaching' onclick="setEmployerType(this.id);">Teaching</button>
