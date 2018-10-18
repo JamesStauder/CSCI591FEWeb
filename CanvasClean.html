@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body onload="draw();" >
+<canvas id="myCanvas" width="800" height="600"
+style="border:1px solid #000000;">
+</canvas>
+<button id="btnCheck">Start Game</button>
+
+<script>
+  
+  var startGame = false;
+  var isFiring = false;
+  
+  var enemyX = [],enemyY = [];
+  var addEnemyTick = 0;
+  var x=750,y = 550;
+  var bulletX = x,bulletY = y;
+  var canvas = document.getElementById('myCanvas');
+  ctx = canvas.getContext('2d');
+
+  $(document).ready(function($){
+
+  $('button').on('click', function() {
+    startGame = true;
+   });
+
+  $('body').on('keypress', function (e) {
+    var actualKeyCode = e.keyCode;               // Get the Unicode value
+    var actualCharacter = String.fromCharCode(actualKeyCode);
+   
+   
+	//Get rid of Magic Numbers
+    if(actualCharacter == "w")
+    {
+		y = Math.max(y-10, 0);
+		if(!isFiring){
+			bulletY = Math.max(bulletY-10, 0);
+		}
+    }
+	else if(actualCharacter == "s")
+    {
+		y = Math.min(y+10, 550);
+		if(!isFiring){
+			bulletY = Math.min(bulletY+10, 550);
+		}
+    }
+
+	
+	/*
+	
+	else if(actualCharacter == "a")
+    {
+      if(x-10 >= 0)
+       {
+       x-=10;
+        bulletX = bulletX- 10;
+       }
+       
+     
+    }
+
+    else if(actualCharacter == "d")
+    {
+      
+      x+=10;
+      bulletX = bulletX + 10;
+    }
+	*/
+    
+    else if(actualKeyCode == 32)
+    {
+         isFiring = true;
+    }
+})
+});
+  
+  function draw()
+  {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.fillRect(x,y,50,50);
+      
+      ctx.fillRect(bulletX, bulletY, 5,5);
+	  
+	  for(var i = 0; i < enemyX.length; i++){
+		ctx.fillRect(enemyX[i], enemyY[i], 25, 25);
+	  }
+     
+  }
+    
+  function fallingEnemy()
+  {
+  
+	for(var i = 0; i < enemyY.length; i++){
+	
+		var speed = 15;
+		var distX = Math.abs((x - enemyX[i]));
+		var distY = Math.abs((y - enemyY[i]));
+		
+		var xSpeed = speed;
+		var ySpeed = speed * distY/(distY + distX);
+		
+		if ((y - enemyY[i]) < 0){
+			ySpeed = -ySpeed;
+		}
+		enemyX[i] = enemyX[i] + xSpeed;
+		enemyY[i] = enemyY[i] + ySpeed;
+	}
+	addEnemyTick += 1;
+	if(addEnemyTick == 10){
+		addEnemyTick = 0;
+		enemyX.push(0);
+		enemyY.push(Math.random() * 550);
+	}
+	
+	
+  }
+  
+  function fire()
+  {
+    
+     if(isFiring)
+     {  
+      bulletY-=1;
+         if(checkCollision(bulletX,bulletY,5,5,enemyX,enemyY,15,15))
+         {
+           
+         }
+         
+     }
+     
+  }
+  
+  setInterval(fallingEnemy,100);
+  setInterval(draw,1000/60);
+  
+  // This performs simple rectangular collision detection
+   
+  function checkCollision(x1,y1,h1,w1,x2,y2,h2,w2)
+  {
+    
+      if (x1 < x2 + w2 && x1 + w1 > x2 && y1 < y2 + h2 && y1 + h1 > y2)
+      {
+        return true;  
+      }
+      else
+      {
+        return false;      
+      }  
+  }
+  
+  
+ /* 
+  var canvas = document.getElementById('myCanvas'),
+    ctx = canvas.getContext('2d'),
+    rect = {},
+    drag = false;
+
+function init() {
+  canvas.addEventListener('mousedown', mouseDown, false);
+  canvas.addEventListener('mouseup', mouseUp, false);
+  canvas.addEventListener('mousemove', mouseMove, false);
+}
+
+function mouseDown(e) {
+  rect.startX = e.pageX - this.offsetLeft;
+  rect.startY = e.pageY - this.offsetTop;
+  drag = true;
+}
+
+function mouseUp() {
+    drag = false;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    if(!drag)
+    {
+        console.log(rect.w);
+        ctx.fillRect(rect.startX, rect.startY, rect.w, rect.h);
+    }
+}
+function mouseMove(e) {
+  if (drag) {
+    rect.w = (e.pageX - this.offsetLeft) - rect.startX;
+    rect.h = (e.pageY - this.offsetTop) - rect.startY ;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    draw();
+  }
+}
+
+function draw() {
+    ctx.setLineDash([6]);
+    ctx.strokeRect(rect.startX, rect.startY, rect.w, rect.h);
+}
+
+init();
+*/
+
+ 
+</script>
+
+</body>
+</html>
