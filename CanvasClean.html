@@ -17,9 +17,19 @@ style="border:1px solid #000000;">
   var isFiring = false;
   
   var enemyX = [],enemyY = [];
+  var bulletX = [], bulletY = [];
   var addEnemyTick = 0;
-  var x=750,y = 550;
-  var bulletX = x,bulletY = y;
+  var playerX = 750, playerY = 550;
+  var playerSpeed = 10;
+  var playerWidth = 50;
+  var bulletWidth = 5;
+  var enemyWidth = 25;
+
+  var windowWidth = $('#myCanvas').width;
+  var windowHeight = $('#myCanvas').height;
+
+  console.log(windowWidth);
+ 
   var canvas = document.getElementById('myCanvas');
   ctx = canvas.getContext('2d');
 
@@ -32,24 +42,24 @@ style="border:1px solid #000000;">
   $('body').on('keypress', function (e) {
     var actualKeyCode = e.keyCode;               // Get the Unicode value
     var actualCharacter = String.fromCharCode(actualKeyCode);
-   
-   
-	//Get rid of Magic Numbers
+    console.log(actualCharacter);
+    console.log(e.keyCode);
+    
+	//TODO: Get rid of Magic Numbers
     if(actualCharacter == "w")
     {
-		y = Math.max(y-10, 0);
+		playerY = Math.max(playerY-playerSpeed, 0);
 		if(!isFiring){
-			bulletY = Math.max(bulletY-10, 0);
+			bulletY = Math.max(bulletY-playerSpeed, 0);
 		}
     }
 	else if(actualCharacter == "s")
     {
-		y = Math.min(y+10, 550);
+		playerY = Math.min(playerY+playerSpeed, 550);
 		if(!isFiring){
-			bulletY = Math.min(bulletY+10, 550);
+			bulletY = Math.min(bulletY+playerSpeed, 550);
 		}
     }
-
 	
 	/*
 	
@@ -82,12 +92,11 @@ style="border:1px solid #000000;">
   function draw()
   {
       ctx.clearRect(0,0,canvas.width,canvas.height);
-      ctx.fillRect(x,y,50,50);
-      
-      ctx.fillRect(bulletX, bulletY, 5,5);
+      ctx.fillRect(playerX,playerY,playerWidth,playerWidth);
+      ctx.fillRect(bulletX, bulletY, bulletWidth,bulletWidth);
 	  
 	  for(var i = 0; i < enemyX.length; i++){
-		ctx.fillRect(enemyX[i], enemyY[i], 25, 25);
+		ctx.fillRect(enemyX[i], enemyY[i], enemyWidth, enemyWidth);
 	  }
      
   }
@@ -98,13 +107,13 @@ style="border:1px solid #000000;">
 	for(var i = 0; i < enemyY.length; i++){
 	
 		var speed = 15;
-		var distX = Math.abs((x - enemyX[i]));
-		var distY = Math.abs((y - enemyY[i]));
+		var distX = Math.abs((playerX - enemyX[i]));
+		var distY = Math.abs((playerY - enemyY[i]));
 		
 		var xSpeed = speed;
 		var ySpeed = speed * distY/(distY + distX);
 		
-		if ((y - enemyY[i]) < 0){
+		if ((playerY - enemyY[i]) < 0){
 			ySpeed = -ySpeed;
 		}
 		enemyX[i] = enemyX[i] + xSpeed;
@@ -122,7 +131,6 @@ style="border:1px solid #000000;">
   
   function fire()
   {
-    
      if(isFiring)
      {  
       bulletY-=1;
@@ -137,9 +145,9 @@ style="border:1px solid #000000;">
   
   setInterval(fallingEnemy,100);
   setInterval(draw,1000/60);
+  setInterval(fire,1000/60);
   
   // This performs simple rectangular collision detection
-   
   function checkCollision(x1,y1,h1,w1,x2,y2,h2,w2)
   {
     
