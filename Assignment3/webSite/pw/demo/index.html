@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>jQuery Password Validator Plugin Demo</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+        <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+		<script src="../dist/jquery.password-validator.js"></script>
+		<link rel="stylesheet" href="../dist/jquery-password-validator.css"></link>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+		  html {
+				font-size: 15px;
+			}
+
+			body {
+				background: #4E44A6;
+				color: #fff;
+				font-size: 15px;
+				font-weight: 300;
+				line-height: 1.6;
+				margin: 0;
+				padding: 0;
+			}
+
+			h1 {
+				font-size: 2rem;
+				font-weight: 300;
+				margin: 0;
+			}
+
+			.demo-container {
+				margin: 150px auto;
+				max-width: 450px;
+				padding: 1rem;
+				width: 100%;
+			}
+
+			.demo-header {
+				padding: 1rem;
+			}
+
+			.demo-form {
+				height: 500px;
+				padding: 1rem;
+				width: 100%;
+			}
+
+			input[type="password"] {
+				background: transparent;
+				border: 1px solid #887AFF;
+				border-radius: 3px;
+				color: #fff;
+				font-family: 'Roboto Condensed', sans-serif;
+				font-size: 15px;
+				outline: none;
+				padding: 1rem;
+				transition: all 0.2s;
+				width: 100%;
+			}
+
+			input[type="password"]:hover,
+			input[type="password"]:focus {
+				border-color: #BFB7FF;
+			}
+
+			.jq-password-validator__popover {
+				background: #fff;
+				border-radius: 3px;
+				box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+				color: #4E44A6;
+				padding: 1.5rem;
+				transition: all 0.2s;
+			}
+
+			.jq-password-validator__popover header {
+				font-weight: normal;
+				margin-bottom: 0.5rem;
+			}
+
+			em {
+				border-bottom: 1px dotted;
+				font-style: normal;
+			}
+
+			.is-valid {
+				color: #4E44A6;
+			}
+
+			.jq-password-validator__checkmark {
+				fill: #44A64D;
+			}
+
+		</style>
+	</head>
+	<body><div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/form/Simple-Password-Strength-Checker-With-jQuery-Password-Validator.html">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+		<div class="demo-container">
+			
+			<div class="demo-header">
+				<h1>jQuery Password Validator Plugin Demo</h1>
+			</div>
+			<div class="demo-form">
+				<input type="password" id="password" autofocus>
+			</div>
+		</div>
+
+		<script>
+			$(function() {
+					$("#password").passwordValidator({
+						// list of qualities to require
+						require: ['length', 'lower', 'upper', 'digit'],
+						// minimum length requirement
+						length: 8
+					});
+			});
+		</script>
+
+	</body>
+</html>

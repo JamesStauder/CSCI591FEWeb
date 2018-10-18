@@ -1,15 +1,6 @@
 var empType = "";
 var buttonSelected = "";
 
-$(document).ready(function(){
-    var inputFields = $(".inputField");
-    inputFields = $.makeArray(inputFields);
-	$("#submitButton").click(function(){
-        checkAllContactFields(inputFields);
-    });
-
-
-});
 
 function checkRegistrationFields(){
     if(checkUsername() == false){
@@ -42,8 +33,6 @@ function checkUsername(){
 
 function checkPassword(){
     var pssword = document.getElementById("pssword");
-
-
     if(pssword.value == ""){
         window.alert("Please enter a password.");
         pssword.style.background = "#ff0000";
