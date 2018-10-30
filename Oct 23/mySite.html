@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Jimmy's Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</script>
+    <script>
+        function saveStuff()
+        {
+            var name = window.document.getElementById("name").value;
+            window.localStorage.setItem("name", name);
+			
+			var username = window.document.getElementById("username").value;
+			window.sessionStorage.setItem("username", username);
+            
+			var scores = [];
+			$.getJSON("highScores.JSON", function(result){
+				$.each(result, function(i, field){
+					scores.push(field);
+			});
+			
+			console.log(scores);
+    });
+        }
+        function retrieveStuff()
+        {
+            // Retrieve
+            window.document.getElementById("result").innerHTML = window.localStorage.getItem("lastname");
+            
+        }
+
+    </script>
+</head>
+<body>
+
+  <div>
+    <label for="name">Name:</label>
+    <input type="name" class="form-control" id="name">
+  </div>
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input type="username" class="form-control" id="username">
+  </div>
+  <button type="submit" class="btn btn-primary" onclick="saveStuff();">Submit</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    
+    <script>
+        function saveStuff()
+        {
+            // Store
+            window.sessionStorage.setItem("secretStuff", "xj3dd9slke");
+            
+        }
+        function retrieveStuff()
+        {
+            // Retrieve
+            window.document.getElementById("result").innerHTML = window.sessionStorage.getItem("secretStuff");
+            
+        }
+
+    </script>
+</head>
+<body>
+
+    <div id="result">Stuff</div>
+<p>
+    <button onclick="saveStuff();">Save Stuff</button>
+    <button onclick="retrieveStuff();">Click Me</button>
+</p>
+</body>
+</html>

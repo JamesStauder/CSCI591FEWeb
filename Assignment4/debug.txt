@@ -1,0 +1,14 @@
+I did not run into many bugs this time around. The one that caught me by surprise and I spent
+quite a bit of time on was the key listener on the server. I have not yet solved that and
+I will ask you about it in office hours. I have scoured the internet and have not yet
+found out the answer.
+
+Any small errors that did come up were easily solved with console.log and google
+
+That said, the website is smaller than before as I am looking to transition the website
+to an actual site I want to publish and document in resumes. Therefore, a lot of previous
+work was changed and some new things have started as I am trying to work towards a finished
+product. 
+
+
+github - https://github.com/JamesStauder/CSCI591FEWeb

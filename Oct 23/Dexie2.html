@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+     <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script>
+        
+        var db = new Dexie("contact_database");
+        db.version(1).stores({
+        contacts: 'id,name,age,location'
+        });
+        
+        function addContacts()
+        {
+            db.transaction('rw', db.contacts, () => {
+            const objs = [{id:1,name:"Bob",age:34, location:"Maple"},
+                          {id:2,name:"Joe",age:22,location:"Elm"},
+                          {id:3,name:"Mary",age:12,location:"Oak"},
+                          {id:4,name:"Blue",age:45,location:"Pine"} ];
+            for (const o of objs) {
+            console.log(o);
+            db.contacts.put(o);
+        }
+        }).catch(function (e) {
+            // handle errors
+            alert(e);
+        });
+        
+        }
+        
+        function getContacts()
+        {
+            /*
+           db.contacts.get(3, function (contact) {
+                $("#output").text("Contact with id " + contact.id + ": " + contact.name);
+            });
+            */
+          
+          /*
+          var finalOutput =  "";
+          db.contacts.where('name').startsWithIgnoreCase("b").each(function (contact) {
+            console.log ("Found contact: " + contact.name);
+            finalOutput += "Contact with id " + contact.id + ": " + contact.name + " "; 
+             $("#output").text(finalOutput);
+            });
+         */
+          
+          var finalOutput =  "";
+          try
+          {
+          db.contacts.where("age").between(12,40).each(function (contact) {
+            console.log ("Found contact: " + contact.name);
+            finalOutput += "Contact with id " + contact.id + ": " + contact.name + " "; 
+             $("#output").text(finalOutput);
+            });  
+          }
+          catch(e)
+          {
+            console.log(e);
+          }
+          
+        }
+    </script>
+</head>
+<body onload="addContacts();">
+
+<button onclick="getContacts();">Get Info</button>
+<span id="output">Nothing yet</span>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jimmy's Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body onload=draw();>
+
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Jimmy's Website</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="who.html">Who am I</a></li>
+            <li><a href="timeline.html">My Timeline</a></li>
+            <li><a href="projects.html">Current Projects</a></li>
+            <li><a href="interests.html">My Interests</a></li>
+            <li><a href="contact.html">Contact me</a></li>
+			<li><a href="assignment4_1.html">Assignment 4.1</a></li>
+			<li class="active"><a href="assignment4_2.html">Assignment 4.2</a></li>
+			<li><a href="assignment4_3.html">Assignment 4.3</a></li>
+        </ul>
+    </div>
+</nav>
+	<center>
+	<h1>This is the beginning of a galaga esque game I am making!</h1>
+	<h3>Note: The key listener is broken when run from server but not from client. I will ask about this!</h3>
+	<canvas id="myCanvas" width="800" height="600"
+	style="border:1px solid #000000;">
+	</canvas>
+	<button id="btnCheck">Start Game</button>
+	</center>
+
+	<script src="scripts/game.js"></script>
+
+</body>
+</html>

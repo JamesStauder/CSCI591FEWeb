@@ -1,0 +1,4 @@
+1. Create a site that uses local storage to store a person's name and personalize based on that name.
+2. add to the site a way to store their user name via session storage
+3. Read some JSON high scores and add the high scores to a dexie database (Indexed DB) and then print it out.
+4. Have the user play the game (either math or pattern) and add their score to the high scores
