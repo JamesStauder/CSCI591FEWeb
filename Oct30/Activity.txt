@@ -1,0 +1,5 @@
+You are going to create your own Babylon 3-D animation.  It can comprise of a number of shapes that are colored, animated and covered with an image.
+
+You can also animate an figure or some other wire mesh.  
+
+You are going to add this to your website in your homework and into your github repository.

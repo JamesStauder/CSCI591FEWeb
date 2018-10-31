@@ -27,10 +27,8 @@
    });
 
   $('body').on('keypress', function (e) {
-		var actualKeyCode = e.keyCode;               // Get the Unicode value
+		var actualKeyCode = e.which || e.keyCode;               // Get the Unicode value
 		var actualCharacter = String.fromCharCode(actualKeyCode);
-		console.log(actualCharacter);
-		console.log(e.keyCode);
 		
 		if(actualCharacter == "w")
 		{
