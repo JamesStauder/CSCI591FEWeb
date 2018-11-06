@@ -1,0 +1,15 @@
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 100%;
+}
+
+
+body {
+    background-color: orange;
+}
+
+
+.dataButtons{
+	background-color: red;
+	color: white;
+	
+}
